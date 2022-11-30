@@ -1,0 +1,40 @@
+# Disable base plugins from upstream
+- { repo: christoomey/vim-tmux-navigator, if: 0 }
+- { repo: lambdalisue/suda.vim, if: 0 }
+
+# Bufferline - https://github.com/akinsho/bufferline.nvim
+- repo: akinsho/bufferline.nvim
+  on_event: VimEnter
+  depends: nvim-web-devicons
+  rev: 'v2.*'
+  hook_post_source: lua require('local-plugins.bufferline')
+
+# Gitlinker
+- repo: ruifm/gitlinker.nvim
+  depends: plenary.nvim
+  hook_post_source: lua require('local-plugins.gitlinker')
+
+# Color Theme
+- { repo: sainnhe/gruvbox-material }
+
+# Statusline
+- repo: nvim-lualine/lualine.nvim
+  if: has('nvim-0.5')
+  on_event: VimEnter
+  hook_post_source: lua require('local-plugins.lualine')
+
+# Got this from: https://github.com/thecontinium/vim-config/blob/master/config/local.plugins.yaml#L28-L31
+- repo: WhoIsSethDaniel/mason-tool-installer.nvim
+  if: has('nvim-0.7')
+  on_source: nvim-lspconfig
+  hook_post_source: lua require('local-plugins.mason-tool-installer')
+
+# fzf
+- { repo: junegunn/fzf, hook_post_update: 'call fzf#install()' }
+- { repo: junegunn/fzf.vim}
+
+# Floating Terminal - https://github.com/voldikss/vim-floaterm
+- { repo: voldikss/vim-floaterm }
+
+# Kitty Terminal navigator - https://github.com/knubie/vim-kitty-navigator
+- { repo: knubie/vim-kitty-navigator }
