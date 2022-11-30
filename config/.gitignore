@@ -1,0 +1,4 @@
+!local.vim
+!local.plugins.yaml
+!plugins.local.yaml
+!local.plugins/*
